@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { verifyAdminToken } from "@/lib/firebase/admin";
 import { cloudinary } from "@/lib/cloudinary";
 
+export const runtime = "nodejs";
+
 export async function POST(request: NextRequest) {
   try {
     const authorization = request.headers.get("authorization");

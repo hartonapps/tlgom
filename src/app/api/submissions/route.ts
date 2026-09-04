@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getAdminDb } from "@/lib/firebase/admin";
 
+export const runtime = "nodejs";
+
 const clean = (value: unknown, max = 5000) => String(value || "").trim().slice(0, max);
 const html = (value: string) => value.replace(/[&<>"']/g, (character) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[character] || character).replace(/\n/g, "<br />");
 

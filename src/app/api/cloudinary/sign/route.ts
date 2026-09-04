@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { verifyAdminToken } from "@/lib/firebase/admin";
 import { cloudinary } from "@/lib/cloudinary";
 
+export const runtime = "nodejs";
+
 export async function POST(request: NextRequest) {
   try {
     const authorization = request.headers.get("authorization");
@@ -55,13 +57,7 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json(
       { error: message },
-      {
-        status:
-          message === "Authentication required." ||
-          message.includes("auth")
-            ? 401
-            : 500,
-      }
+      { status: 500 }
     );
   }
 }
