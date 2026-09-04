@@ -6,7 +6,7 @@ import Link from "next/link";
 import { ChevronDown, Menu, X } from "lucide-react";
 
 const navItems = [["Home", "/"], ["About", "/about-us"], ["Events", "/events"]];
-const galleryItems = [["Photo gallery", "/photo-gallery"], ["Video-sermon", "/media"], ["Article", "/articles"]];
+const galleryItems = [["Photo gallery", "/photo-gallery"], ["Video sermons", "/sermons"]];
 const logoUrl = "https://res.cloudinary.com/hularox3/image/upload/q_auto:best,f_auto,w_1600/tlgom/branding/logo.png";
 
 export default function HomepageHeader({ scrolled }: { scrolled?: boolean }) {

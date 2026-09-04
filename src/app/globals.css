@@ -114,6 +114,8 @@
 @media (max-width:760px) { .nav-dropdown.open .nav-dropdown-menu { display:block; } .hero-actions { bottom:58px; gap:8px; left:50%; right:auto; transform:translateX(-50%); } .hero-button { font-size:11px; min-height:42px; padding:0 14px; } }
 
 .header-brand strong { display:block; font-size:12px; font-weight:500; letter-spacing:.04em; line-height:1.1; }
+.site-header:not(.is-scrolled) .header-brand strong { color:#fff; }
+.site-header:not(.is-scrolled) .header-brand small { color:#fff; }
 .header-brand small { color:rgba(255,255,255,.78); display:block; font-size:9px; font-weight:400; letter-spacing:.05em; margin-top:4px; }
 .hero-logo { background:transparent; border:0; border-radius:50%; clip-path:none; height:220px; overflow:visible; padding:0; width:220px; }
 .hero-logo::before,.hero-logo::after { display:none; }
@@ -122,6 +124,14 @@
 .dashboard-actions { display:flex; justify-content:flex-end; margin:-20px -20px 12px; }
 .dashboard-signout { background:none; border:0; color:#737b94; cursor:pointer; font:600 12px var(--font-inter),Arial,sans-serif; padding:8px; }
 .dashboard-signout:hover { color:var(--red); }
+.dashboard-metrics { display:grid; gap:10px; grid-template-columns:repeat(6,minmax(0,1fr)); margin:30px 0 22px; }
+.dashboard-metrics div { background:#fff; border:1px solid #e6e8ef; display:flex; flex-direction:column; gap:6px; padding:16px; }
+.dashboard-metrics strong { color:var(--blue); font-size:28px; letter-spacing:-.05em; }
+.dashboard-metrics span { color:#7b8398; font-size:10px; font-weight:700; letter-spacing:.05em; text-transform:uppercase; }
+.admin-field-help { color:#8991a6; display:block; font-size:10px; font-weight:400; margin-top:6px; }
+.settings-subheading { border-top:1px solid #e3e6ef; margin-top:28px; padding-top:25px; }
+@media (max-width:1050px) { .dashboard-metrics { grid-template-columns:repeat(3,minmax(0,1fr)); } }
+@media (max-width:760px) { .dashboard-metrics { grid-template-columns:repeat(2,minmax(0,1fr)); } }
 .admin-sidebar { background:transparent; display:block; min-height:0; padding:15px 20px; position:fixed; width:auto; z-index:10; }
 .admin-sidebar > * { display:none; }
 .admin-sidebar .admin-nav-item.active { align-items:center; background:#fff; border:1px solid #e5e8f1; box-shadow:0 5px 20px rgba(29,39,78,.08); color:var(--blue); display:inline-flex; font-size:0; gap:7px; padding:10px 14px; }
@@ -286,6 +296,102 @@ textarea:focus { border-color:#6674c9; box-shadow:0 0 0 3px #6674c922; }
 .field-note { color:#8991a6; font-size:10px; font-weight:400; margin-left:5px; }
 .thumbnail-confirmation { align-items:center; color:#237344; display:flex; font-size:11px; gap:12px; margin:-5px 0 20px; }
 .thumbnail-confirmation img { border-radius:5px; height:48px; object-fit:cover; width:85px; }
+.sermons-page { background:var(--cream); color:var(--blue); min-height:100vh; }
+.sermons-page .site-header .header-brand { align-items:center; display:flex; gap:12px; margin-right:auto; }
+.sermons-page .site-header .header-brand img { background:#fff; border-radius:50%; height:50px; object-fit:cover; width:50px; }
+.sermons-page .site-header .header-brand span { display:block; }
+.sermons-page .site-header.is-scrolled .header-brand strong { color:var(--blue); }
+.sermons-page .site-header.is-scrolled .header-brand small { color:var(--purple); }
+.sermons-hero { background:var(--blue); color:#fff; padding:clamp(100px,14vw,180px) 0 75px; }
+.sermons-hero h1 { color:#fff; font-size:clamp(48px,8vw,100px); letter-spacing:-.07em; margin:0 0 15px; }
+.sermons-hero>div>p:last-child { color:#c9cede; font-size:15px; line-height:1.7; margin:0; max-width:570px; }
+.sermons-content { padding:clamp(45px,7vw,90px) 0; }
+.sermons-tools { align-items:end; display:grid; gap:14px; grid-template-columns:minmax(240px,1fr) 180px 160px; margin-bottom:30px; }
+.sermons-tools label { color:var(--blue); display:flex; flex-direction:column; gap:7px; }
+.sermons-tools label>span { font-size:10px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; }
+.sermons-search { align-items:center; background:#fff; border:1px solid #e0dfdc; display:flex; flex-direction:row!important; gap:10px!important; padding:0 13px; }
+.sermons-search input { background:transparent; border:0; color:var(--blue); font-size:13px; min-height:45px; outline:0; width:100%; }
+.sermons-search button { background:transparent; border:0; color:#7d8496; cursor:pointer; display:flex; }
+.sermons-tools select { background:#fff; border:1px solid #e0dfdc; color:var(--blue); font-size:12px; min-height:47px; padding:0 11px; }
+.sermons-archive-grid { display:grid; gap:16px; grid-template-columns:repeat(3,minmax(0,1fr)); }
+.sermon-archive-card { background:#fff; color:var(--blue); display:flex; flex-direction:column; min-width:0; overflow:hidden; transition:box-shadow .2s,transform .2s; }
+.sermon-archive-card:hover { box-shadow:0 15px 32px rgba(29,39,78,.15); transform:translateY(-4px); }
+.sermon-archive-image { align-items:flex-end; background:#d8d8d8 center/cover; display:flex; height:215px; justify-content:flex-start; padding:14px; position:relative; }
+.sermon-archive-image:after { background:linear-gradient(180deg,transparent 35%,rgba(12,18,45,.65)); content:""; inset:0; position:absolute; }
+.sermon-archive-image>span { align-items:center; color:#fff; display:flex; font-size:10px; font-weight:800; gap:6px; letter-spacing:.09em; position:relative; text-transform:uppercase; z-index:1; }
+.sermon-archive-copy { display:flex; flex:1; flex-direction:column; padding:20px; }
+.sermon-archive-copy>small { color:var(--red); font-size:10px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; }
+.sermon-archive-copy h2 { color:var(--blue); font-size:22px; letter-spacing:-.04em; line-height:1.15; margin:10px 0 8px; }
+.sermon-archive-speaker { color:#636c85; font-size:12px; font-weight:700; margin:0; }
+.sermon-archive-description { color:#7b8398; display:-webkit-box; font-size:12px; line-height:1.55; margin:12px 0 0; overflow:hidden; -webkit-box-orient:vertical; -webkit-line-clamp:3; line-clamp:3; }
+.sermon-archive-link { align-items:center; color:var(--red); display:flex; font-size:10px; font-weight:800; gap:7px; letter-spacing:.1em; margin-top:auto; padding-top:20px; text-transform:uppercase; }
+.sermons-empty { align-items:center; color:#7b8398; display:flex; flex-direction:column; gap:10px; min-height:180px; justify-content:center; text-align:center; }
+.sermons-empty h2 { color:var(--blue); font-size:24px; margin:0; }
+.sermons-empty p { font-size:13px; margin:0; }
+.sermons-back { align-items:center; color:var(--blue); display:inline-flex; font-size:11px; font-weight:800; gap:7px; letter-spacing:.08em; margin-top:34px; text-transform:uppercase; }
+.events-page { background:var(--cream); color:var(--blue); min-height:100vh; }
+.give-page { background:var(--cream); color:var(--blue); min-height:100vh; }
+.give-page .site-header .header-brand { align-items:center; display:flex; gap:12px; margin-right:auto; }
+.give-page .site-header .header-brand img { background:#fff; border-radius:50%; height:50px; object-fit:cover; width:50px; }
+.give-page .site-header .header-brand span { display:block; }
+.give-page .site-header.is-scrolled .header-brand strong { color:var(--blue); }
+.give-page .site-header.is-scrolled .header-brand small { color:var(--purple); }
+.give-hero { background:var(--blue); color:#fff; padding:clamp(100px,14vw,180px) 0 75px; }
+.give-hero h1 { color:#fff; font-size:clamp(48px,8vw,100px); letter-spacing:-.07em; margin:0 0 15px; }
+.give-hero>div>p:last-child { color:#c9cede; font-size:15px; line-height:1.7; margin:0; max-width:570px; }
+.give-content { padding:clamp(55px,8vw,105px) 0; }
+.give-intro { align-items:end; display:flex; gap:40px; justify-content:space-between; margin-bottom:38px; }
+.give-intro h2 { color:var(--blue); font-size:clamp(35px,5vw,62px); letter-spacing:-.06em; margin:0; }
+.give-intro>p { color:#737b94; font-size:14px; line-height:1.7; margin:0; max-width:470px; }
+.give-methods { display:grid; gap:15px; grid-template-columns:repeat(3,minmax(0,1fr)); }
+.give-method { background:#fff; min-height:245px; padding:25px; }
+.give-method-icon { align-items:center; background:#f2c65c; border-radius:50%; color:var(--blue); display:flex; height:46px; justify-content:center; margin-bottom:25px; width:46px; }
+.give-method small { color:var(--red); font-size:10px; font-weight:800; letter-spacing:.11em; text-transform:uppercase; }
+.give-method h3 { color:var(--blue); font-size:24px; letter-spacing:-.04em; margin:10px 0 10px; }
+.give-method p { color:#7b8398; font-size:13px; line-height:1.65; margin:0; }
+.give-trust { align-items:flex-start; background:var(--blue); color:#fff; display:flex; gap:15px; margin-top:16px; padding:24px 26px; }
+.give-trust svg { color:#f2c65c; flex:none; }
+.give-trust h3 { font-size:16px; margin:0 0 6px; }
+.give-trust p { color:#c9cede; font-size:12px; line-height:1.6; margin:0; }
+.give-contact-link { align-items:center; color:var(--red); display:inline-flex; font-size:11px; font-weight:800; gap:7px; letter-spacing:.08em; margin-top:28px; text-transform:uppercase; }
+@media (max-width:760px) { .give-hero { padding-top:95px; } .give-intro { align-items:flex-start; flex-direction:column; gap:16px; } .give-methods { grid-template-columns:1fr; } .give-method { min-height:0; } }
+.events-page .site-header .header-brand { align-items:center; display:flex; gap:12px; margin-right:auto; }
+.events-page .site-header .header-brand img { background:#fff; border-radius:50%; height:50px; object-fit:cover; width:50px; }
+.events-page .site-header .header-brand span { display:block; }
+.events-page .site-header.is-scrolled .header-brand strong { color:var(--blue); }
+.events-page .site-header.is-scrolled .header-brand small { color:var(--purple); }
+.events-hero { background:var(--blue); color:#fff; padding:clamp(100px,14vw,180px) 0 75px; }
+.events-hero h1 { color:#fff; font-size:clamp(48px,8vw,100px); letter-spacing:-.07em; margin:0 0 15px; }
+.events-hero>div>p:last-child { color:#c9cede; font-size:15px; line-height:1.7; margin:0; max-width:570px; }
+.events-content { padding:clamp(45px,7vw,90px) 0; }
+.events-tools { align-items:end; display:grid; gap:14px; grid-template-columns:minmax(240px,1fr) 180px 160px; margin-bottom:30px; }
+.events-tools label { color:var(--blue); display:flex; flex-direction:column; gap:7px; }
+.events-tools label>span { font-size:10px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; }
+.events-search { align-items:center; background:#fff; border:1px solid #e0dfdc; display:flex; flex-direction:row!important; gap:10px!important; padding:0 13px; }
+.events-search input { background:transparent; border:0; color:var(--blue); font-size:13px; min-height:45px; outline:0; width:100%; }
+.events-search button { background:transparent; border:0; color:#7d8496; cursor:pointer; display:flex; }
+.events-tools select { background:#fff; border:1px solid #e0dfdc; color:var(--blue); font-size:12px; min-height:47px; padding:0 11px; }
+.events-archive-grid { display:grid; gap:16px; grid-template-columns:repeat(3,minmax(0,1fr)); }
+.events-archive-card { background:#fff; color:var(--blue); display:flex; flex-direction:column; min-width:0; overflow:hidden; transition:box-shadow .2s,transform .2s; }
+.events-archive-card:hover { box-shadow:0 15px 32px rgba(29,39,78,.15); transform:translateY(-4px); }
+.events-archive-image { align-items:flex-start; background:#d8d8d8 center/cover; display:flex; height:215px; justify-content:flex-end; padding:14px; position:relative; }
+.events-archive-image:after { background:linear-gradient(180deg,rgba(12,18,45,.1),transparent 40%,rgba(12,18,45,.55)); content:""; inset:0; position:absolute; }
+.events-archive-image>svg { align-self:center; color:var(--red); margin:auto; position:relative; z-index:1; }
+.events-archive-image>.event-status { position:relative; z-index:1; }
+.events-archive-copy { display:flex; flex:1; flex-direction:column; padding:20px; }
+.events-archive-copy>small { color:var(--red); font-size:10px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; }
+.events-archive-copy h2 { color:var(--blue); font-size:22px; letter-spacing:-.04em; line-height:1.15; margin:10px 0 8px; }
+.events-archive-location { color:#636c85; font-size:12px; font-weight:700; margin:0; }
+.events-archive-description { color:#7b8398; display:-webkit-box; font-size:12px; line-height:1.55; margin:12px 0 0; overflow:hidden; -webkit-box-orient:vertical; -webkit-line-clamp:3; line-clamp:3; }
+.events-archive-link { align-items:center; color:var(--red); display:flex; font-size:10px; font-weight:800; gap:7px; letter-spacing:.1em; margin-top:auto; padding-top:20px; text-transform:uppercase; }
+.events-empty { align-items:center; color:#7b8398; display:flex; flex-direction:column; gap:10px; min-height:180px; justify-content:center; text-align:center; }
+.events-empty h2 { color:var(--blue); font-size:24px; margin:0; }
+.events-empty p { font-size:13px; margin:0; }
+.events-back { align-items:center; color:var(--blue); display:inline-flex; font-size:11px; font-weight:800; gap:7px; letter-spacing:.08em; margin-top:34px; text-transform:uppercase; }
+@media (max-width:1050px) { .events-archive-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media (max-width:760px) { .events-hero { padding-top:95px; } .events-tools { grid-template-columns:1fr 1fr; } .events-search { grid-column:1/-1; } .events-archive-grid { grid-template-columns:1fr 1fr; gap:10px; } .events-archive-image { height:145px; padding:10px; } .events-archive-copy { padding:13px 11px 15px; } .events-archive-copy h2 { font-size:16px; } .events-archive-description { font-size:11px; } }
+@media (max-width:1050px) { .sermons-archive-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media (max-width:760px) { .sermons-hero { padding-top:95px; } .sermons-tools { grid-template-columns:1fr 1fr; } .sermons-search { grid-column:1/-1; } .sermons-archive-grid { grid-template-columns:1fr 1fr; gap:10px; } .sermon-archive-image { height:145px; padding:10px; } .sermon-archive-copy { padding:13px 11px 15px; } .sermon-archive-copy h2 { font-size:16px; } .sermon-archive-description { font-size:11px; } }
 @media (max-width:1050px) { .sermon-cards { grid-template-columns:repeat(2,minmax(0,1fr)); } .sermon-card-image { height:190px; } }
 @media (max-width:760px) { .featured-sermons-heading { align-items:flex-start; flex-direction:column; gap:20px; } .sermon-cards { grid-template-columns:1fr; } .sermon-card-image { height:210px; } .sermon-form-grid { grid-template-columns:1fr; } .wide-field { grid-column:auto; } }
 @media (max-width:600px) { .sermon-admin-row { align-items:flex-start; flex-wrap:wrap; gap:12px; } .sermon-admin-thumb { height:52px; width:78px; } .sermon-admin-copy { min-width:calc(100% - 100px); } .sermon-admin-actions { margin-left:auto; } }
@@ -303,6 +409,7 @@ textarea:focus { border-color:#6674c9; box-shadow:0 0 0 3px #6674c922; }
 .event-card-copy>small { color:var(--red); font-size:10px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; }
 .event-card-copy h3 { font-size:21px; letter-spacing:-.04em; line-height:1.15; margin:11px 0 8px; }
 .event-card-copy p { color:#777d96; font-size:12px; margin:0 0 22px; }
+.event-card-copy .event-card-description { display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:3; line-clamp:3; line-height:1.55; margin:0; overflow:hidden; }
 .event-card-link { align-items:center; color:var(--blue); display:flex; font-size:11px; font-weight:800; gap:7px; letter-spacing:.08em; margin-top:auto; text-transform:uppercase; }
 .view-all-event-card { align-items:flex-start; background:var(--red); color:#fff; justify-content:center; padding:28px; }
 .view-all-event-card strong { font-size:24px; letter-spacing:-.04em; }
@@ -371,8 +478,6 @@ textarea:focus { border-color:#6674c9; box-shadow:0 0 0 3px #6674c922; }
 .submission-tabs button.active { border-bottom-color:var(--red); color:var(--blue); }
 .submission-tabs b { background:#eef0fa; border-radius:10px; color:var(--blue); font-size:10px; margin-left:6px; padding:3px 7px; }
 @media (max-width:760px) { .submission-forms-grid { grid-template-columns:1fr; } .submission-form-card { padding:21px; } .submission-row time { display:none; } }
-.ministries-section { background:#fff; color:var(--blue); padding:clamp(78px,10vw,140px) 0; }
-
 .homepage-gallery-section { background:var(--cream); color:var(--blue); padding:clamp(70px,9vw,125px) 0; }
 .homepage-gallery-heading { align-items:end; display:flex; gap:30px; justify-content:space-between; margin-bottom:28px; }
 .homepage-gallery-heading h2 { color:var(--blue); font-size:clamp(34px,5vw,68px); letter-spacing:-.06em; margin:0 0 10px; }

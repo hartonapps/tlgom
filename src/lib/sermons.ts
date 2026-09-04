@@ -10,6 +10,14 @@ export type Sermon = {
   enabled?: boolean;
 };
 
+export function normalizeSpeakerName(value?: string) {
+  return (value || "").trim().replace(/\s+/g, " ").toLocaleLowerCase();
+}
+
+export function formatSpeakerName(value?: string) {
+  return (value || "").trim().replace(/\s+/g, " ");
+}
+
 export function getYouTubeVideoId(url: string) {
   const match = url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|shorts\/|embed\/))([A-Za-z0-9_-]{11})/);
   return match?.[1] || "";
