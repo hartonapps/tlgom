@@ -8,8 +8,9 @@ export async function POST(request: NextRequest) {
     if (!authorization?.startsWith("Bearer ")) return NextResponse.json({ error: "Authentication required." }, { status: 401 });
     await verifyAdminToken(authorization.slice(7));
     if (!process.env.CLOUDINARY_CLOUD_NAME || !process.env.CLOUDINARY_API_KEY || !process.env.CLOUDINARY_API_SECRET) throw new Error("Cloudinary is not configured.");
+    const body = await request.json().catch(() => ({}));
+    const folder = body.folder === "tlgom/gallery" ? "tlgom/gallery" : "tlgom/slideshow";
     const timestamp = Math.round(Date.now() / 1000);
-    const folder = "tlgom/slideshow";
     const signature = cloudinary.utils.api_sign_request({ timestamp, folder }, process.env.CLOUDINARY_API_SECRET);
     return NextResponse.json({ timestamp, folder, signature, apiKey: process.env.CLOUDINARY_API_KEY, cloudName: process.env.CLOUDINARY_CLOUD_NAME });
   } catch (error) {
