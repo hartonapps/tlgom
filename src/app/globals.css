@@ -346,6 +346,43 @@ textarea:focus { border-color:#6674c9; box-shadow:0 0 0 3px #6674c922; }
 .give-methods { display:grid; gap:15px; grid-template-columns:repeat(3,minmax(0,1fr)); }
 .give-method { background:#fff; min-height:245px; padding:25px; }
 .give-method-icon { align-items:center; background:#f2c65c; border-radius:50%; color:var(--blue); display:flex; height:46px; justify-content:center; margin-bottom:25px; width:46px; }
+.give-details-card { background:#fff; padding:clamp(22px,4vw,42px); }
+.give-account-list { display:grid; gap:14px; }
+.giving-currency-tabs { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:15px; }
+.giving-currency-tabs button { background:transparent; border:1px solid var(--red); border-radius:30px; color:var(--blue); cursor:pointer; font-size:12px; font-weight:800; padding:13px 25px; text-transform:uppercase; }
+.giving-currency-tabs button.active { background:var(--red); color:#fff; }
+.give-loading { color:#7b8398; padding:45px 0; text-align:center; }
+.give-details-card+.give-details-card { margin-top:14px; }
+.give-bank-heading { align-items:center; display:flex; gap:18px; }
+.give-bank-heading img { border-radius:5px; height:42px; object-fit:contain; width:42px; }
+.give-bank-heading small { color:var(--red); font-size:10px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; }
+.give-bank-heading h2 { color:var(--blue); font-size:clamp(28px,4vw,48px); letter-spacing:-.06em; margin:5px 0 0; }
+.give-account-details { border-top:1px solid #e3e6ef; display:grid; gap:18px; grid-template-columns:repeat(2,1fr); margin-top:28px; padding-top:22px; }
+.give-account-details div { display:flex; flex-direction:column; gap:6px; }
+.give-account-details span { color:#7b8398; font-size:10px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; }
+.give-account-details strong { color:var(--blue); font-size:16px; }
+.give-message { margin:30px 0; max-width:800px; }
+.give-message>p { color:var(--blue); font-size:18px; line-height:1.55; margin:0 0 20px; }
+.give-message blockquote { border-left:3px solid #f2c65c; color:#737b94; font-size:14px; font-style:italic; line-height:1.8; margin:0; padding-left:20px; }
+.give-message blockquote+blockquote { margin-top:22px; }
+.give-message cite { color:var(--red); display:block; font-size:11px; font-style:normal; font-weight:800; letter-spacing:.1em; margin-top:12px; text-transform:uppercase; }
+.give-account-note { color:#7b8398; font-size:12px; line-height:1.6; margin:22px 0 0; }
+.giving-admin-accounts { display:grid; gap:16px; max-width:900px; }
+.giving-admin-account { background:#fff; border:1px solid #e3e6ef; padding:22px; }
+.giving-admin-account-head { align-items:center; display:flex; justify-content:space-between; margin-bottom:18px; }
+.giving-admin-account-head h2 { color:var(--blue); font-size:20px; margin:0; }
+.giving-admin-actions { display:flex; flex-wrap:wrap; gap:10px; }
+.secondary-admin-button { background:#fff; border:1px solid #d9ddea; color:var(--blue); }
+.giving-admin-preview { border-radius:6px; height:55px; margin:0 0 20px; object-fit:contain; width:55px; }
+.giving-admin-list { display:grid; gap:10px; margin-bottom:18px; max-width:900px; }
+.giving-admin-row { align-items:center; background:#fff; border:1px solid #e3e6ef; display:flex; gap:14px; padding:14px 16px; }
+.giving-admin-row.is-hidden { opacity:.55; }
+.giving-admin-row img { border-radius:4px; height:38px; object-fit:contain; width:38px; }
+.giving-admin-row>div { display:flex; flex:1; flex-direction:column; gap:5px; min-width:0; }
+.giving-admin-row strong { color:var(--blue); font-size:14px; }
+.giving-admin-row small { color:#7b8398; font-size:11px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.giving-admin-row>button { background:#f4f5f9; border:0; color:var(--blue); cursor:pointer; display:flex; padding:9px; }
+.giving-admin-row>button:hover { color:var(--red); }
 .give-method small { color:var(--red); font-size:10px; font-weight:800; letter-spacing:.11em; text-transform:uppercase; }
 .give-method h3 { color:var(--blue); font-size:24px; letter-spacing:-.04em; margin:10px 0 10px; }
 .give-method p { color:#7b8398; font-size:13px; line-height:1.65; margin:0; }
