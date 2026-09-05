@@ -9,7 +9,7 @@ import { useRouter } from "next/navigation";
 import { auth, db, firebaseReady } from "@/lib/firebase/client";
 import { defaultGivingSettings, givingCurrencies, normalizeGivingAccounts, type GivingAccount } from "@/lib/giving";
 
-const blank = (id: string): GivingAccount => ({ id, imageUrl: "", bankName: "", accountName: "", accountNumber: "", currency: "NGN", note: "", visible: true });
+const blank = (id: string): GivingAccount => ({ id, imageUrl: "", bankName: "", accountName: "", accountNumber: "", currency: "NGN", note: "", category: "offering", visible: true });
 
 async function uploadBankImage(file: File, token: string) {
   const response = await fetch("/api/cloudinary/sign", { method: "POST", headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" }, body: JSON.stringify({ folder: "tlgom/branding" }) });
@@ -53,7 +53,7 @@ export default function GivingAdminPage() {
     try {
       const file = new FormData(event.currentTarget).get("image");
       const imageUrl = file instanceof File && file.size ? await uploadBankImage(file, await user.getIdToken()) : editing.imageUrl;
-      const updated = { ...editing, imageUrl, bankName: editing.bankName.trim(), accountName: editing.accountName.trim(), accountNumber: editing.accountNumber.trim(), currency: editing.currency.trim().toUpperCase(), note: editing.note.trim() };
+      const updated = { ...editing, imageUrl, bankName: editing.bankName.trim(), accountName: editing.accountName.trim(), accountNumber: editing.accountNumber.trim(), currency: editing.currency.trim().toUpperCase(), category: editing.category || "offering", note: editing.note.trim() };
       const nextAccounts = accounts.some((account) => account.id === editing.id) ? accounts.map((account) => account.id === editing.id ? updated : account) : [...accounts, updated];
       await setDoc(doc(db, "siteSettings", "giving"), { accounts: nextAccounts }, { merge: true });
       setEditing(null); setMessage("Account details saved.");
@@ -82,7 +82,7 @@ export default function GivingAdminPage() {
     </article>)}</div>
     <button type="button" className="admin-button" onClick={() => setEditing(blank(`account-${Date.now()}`))}><Plus size={17} /> Add account</button>
     {editing && <form className="sermon-form edit-sermon-form" onSubmit={save}><div className="upload-title"><Edit3 size={19} /><div><h2>{accounts.some((account) => account.id === editing.id) ? "Edit account" : "Add account"}</h2><p>Set the bank details shown under the selected currency tab.</p></div><button className="icon-close-button" type="button" onClick={() => setEditing(null)}><X size={18} /></button></div>
-      <div className="sermon-form-grid"><label>Bank image<input name="image" type="file" accept="image/jpeg,image/png,image/webp" /></label><label>Currency<select value={editing.currency} onChange={(event) => update("currency", event.target.value)}>{givingCurrencies.map((item) => <option key={item}>{item}</option>)}</select></label><label>Bank name<input required value={editing.bankName} onChange={(event) => update("bankName", event.target.value)} /></label><label>Account name<input required value={editing.accountName} onChange={(event) => update("accountName", event.target.value)} /></label><label>Account number<input required value={editing.accountNumber} onChange={(event) => update("accountNumber", event.target.value)} /></label><label className="wide-field">Explanation <span className="field-note">Optional</span><textarea value={editing.note} onChange={(event) => update("note", event.target.value)} /></label></div>
+      <div className="sermon-form-grid"><label>Account category<select value={editing.category} onChange={(event) => update("category", event.target.value)}><option value="tithe">Tithe</option><option value="offering">Offering</option></select></label><label>Bank image<input name="image" type="file" accept="image/jpeg,image/png,image/webp" /></label><label>Currency<select value={editing.currency} onChange={(event) => update("currency", event.target.value)}>{givingCurrencies.map((item) => <option key={item}>{item}</option>)}</select></label><label>Bank name<input required value={editing.bankName} onChange={(event) => update("bankName", event.target.value)} /></label><label>Account name<input required value={editing.accountName} onChange={(event) => update("accountName", event.target.value)} /></label><label>Account number<input required value={editing.accountNumber} onChange={(event) => update("accountNumber", event.target.value)} /></label><label className="wide-field">Explanation <span className="field-note">Optional</span><textarea value={editing.note} onChange={(event) => update("note", event.target.value)} /></label></div>
       {editing.imageUrl && <img className="giving-admin-preview" src={editing.imageUrl} alt="Current bank logo" />}<button className="admin-button" disabled={busy}>{busy ? "Saving..." : "Save account"}</button>
     </form>}
   </section></main>;

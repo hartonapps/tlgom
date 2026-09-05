@@ -10,12 +10,12 @@ import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import SermonCard from "@/components/SermonCard";
 
-export default function SermonsArchive() {
-  const [sermons, setSermons] = useState<Sermon[]>([]);
+export default function SermonsArchive({ initialSermons = [] }: { initialSermons?: Sermon[] }) {
+  const [sermons, setSermons] = useState<Sermon[]>(initialSermons);
   const [query, setQuery] = useState("");
   const [speaker, setSpeaker] = useState("all");
   const [date, setDate] = useState("all");
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (!db) { setLoading(false); return; }

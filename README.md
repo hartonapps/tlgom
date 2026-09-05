@@ -2208,7 +2208,7 @@ Information should be available, but it should be presented through storytelling
 
 The final website should feel like:
 
-**A ministry in motion.**
+**The word for the world**
 
 It should carry the weight of TLGOM's history while looking confidently toward its future.
 

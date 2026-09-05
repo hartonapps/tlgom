@@ -11,8 +11,8 @@ import EventCard from "@/components/EventCard";
 
 function countdown(start: Date, now: Date, duration = 120) { const difference = start.getTime() - now.getTime(); if (difference <= 0 && difference >= -duration * 60000) return "Ongoing"; const minutes = Math.max(0, Math.floor(difference / 60000)); const days = Math.floor(minutes / 1440); const hours = Math.floor((minutes % 1440) / 60); return days ? `${days}d ${hours}h` : hours ? `${hours}h ${minutes % 60}m` : `${minutes % 60}m`; }
 
-export default function EventsArchive() {
-  const [events, setEvents] = useState<ChurchEvent[]>([]); const [query, setQuery] = useState(""); const [location, setLocation] = useState("all"); const [month, setMonth] = useState("all"); const [now, setNow] = useState(() => new Date()); const [loading, setLoading] = useState(true);
+export default function EventsArchive({ initialEvents = [] }: { initialEvents?: ChurchEvent[] }) {
+  const [events, setEvents] = useState<ChurchEvent[]>(initialEvents); const [query, setQuery] = useState(""); const [location, setLocation] = useState("all"); const [month, setMonth] = useState("all"); const [now, setNow] = useState(() => new Date()); const [loading, setLoading] = useState(false);
   useEffect(() => { const timer = window.setInterval(() => setNow(new Date()), 30000); return () => window.clearInterval(timer); }, []);
   useEffect(() => { if (!db) { setLoading(false); return; } return onSnapshot(collection(db, "events"), (snapshot) => { setEvents(snapshot.docs.map((item) => ({ id: item.id, ...item.data() } as ChurchEvent)).filter((item) => item.enabled !== false)); setLoading(false); }, () => setLoading(false)); }, []);
   const dated = useMemo(() => events.map((event) => ({ event, start: getNextEventDate(event, now) })).filter((item): item is { event: ChurchEvent; start: Date } => Boolean(item.start)).sort((a, b) => a.start.getTime() - b.start.getTime()), [events, now]);
