@@ -36,8 +36,17 @@ service cloud.firestore {
       allow read: if resource.data.published == true || isAuthenticated();
       allow create, update, delete: if isAuthenticated();
     }
+    match /testimonies/{testimonyId} {
+      allow read: if resource.data.published == true || isAuthenticated();
+      allow create, update, delete: if isAuthenticated();
+    }
+    match /submissions/{submissionId} {
+      allow read, update: if isAuthenticated();
+      allow create: if false;
+      allow delete: if isAuthenticated();
+    }
     match /siteSettings/{settingId} {
-      allow read: if settingId == 'about' || isAuthenticated();
+      allow read: if settingId in ['about', 'contact'] || isAuthenticated();
       allow create, update, delete: if isAuthenticated();
     }
   }

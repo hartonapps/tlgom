@@ -10,6 +10,8 @@ const resources = {
   homepage: { collection: "siteSettings", document: "homepage" },
   about: { collection: "siteSettings", document: "about" },
   leadership: { collection: "leadership" },
+  testimonies: { collection: "testimonies" },
+  contact: { collection: "siteSettings", document: "contact" },
 } as const;
 
 export async function GET(_: Request, { params }: { params: Promise<{ resource: string }> }) {
