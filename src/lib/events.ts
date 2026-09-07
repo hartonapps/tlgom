@@ -30,5 +30,5 @@ export function getNextEventDate(event: ChurchEvent, now = new Date()) {
 }
 
 export function formatEventDate(date: Date) {
-  return date.toLocaleDateString(undefined, { weekday: "short", month: "short", day: "numeric" });
+  return date.toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric", timeZone: "UTC" });
 }

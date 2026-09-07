@@ -8,6 +8,8 @@ const resources = {
   photos: { collection: "galleryPhotos" },
   giving: { collection: "siteSettings", document: "giving" },
   homepage: { collection: "siteSettings", document: "homepage" },
+  about: { collection: "siteSettings", document: "about" },
+  leadership: { collection: "leadership" },
 } as const;
 
 export async function GET(_: Request, { params }: { params: Promise<{ resource: string }> }) {

@@ -4,7 +4,7 @@ import { FormEvent, useEffect, useState } from "react";
 import Link from "next/link";
 import { onAuthStateChanged, signInWithEmailAndPassword, signOut, User } from "firebase/auth";
 import { collection, onSnapshot } from "firebase/firestore";
-import { ArrowRight, Banknote, CalendarDays, ImagePlus, Images, LayoutList, LoaderCircle, LogOut, MessageSquareText, Settings, Video } from "lucide-react";
+import { ArrowRight, Banknote, CalendarDays, FileText, ImagePlus, Images, LayoutList, LoaderCircle, LogOut, MessageSquareText, Settings, Video } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { auth, db, firebaseReady } from "@/lib/firebase/client";
 

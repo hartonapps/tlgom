@@ -10,5 +10,35 @@ service cloud.firestore {
       allow read: if resource.data.enabled == true || isAuthenticated();
       allow create, update, delete: if isAuthenticated();
     }
+
+    match /blogPosts/{postId} {
+      allow read: if resource.data.status == 'published' || isAuthenticated();
+      allow create, update, delete: if isAuthenticated();
+    }
+
+    match /events/{eventId} {
+      allow read: if resource.data.enabled == true || isAuthenticated();
+      allow create, update, delete: if isAuthenticated();
+    }
+    match /sermons/{sermonId} {
+      allow read: if resource.data.enabled == true || isAuthenticated();
+      allow create, update, delete: if isAuthenticated();
+    }
+    match /galleryAlbums/{albumId} {
+      allow read: if resource.data.visible == true || isAuthenticated();
+      allow create, update, delete: if isAuthenticated();
+    }
+    match /galleryPhotos/{photoId} {
+      allow read: if resource.data.visible == true || isAuthenticated();
+      allow create, update, delete: if isAuthenticated();
+    }
+    match /leadership/{leaderId} {
+      allow read: if resource.data.published == true || isAuthenticated();
+      allow create, update, delete: if isAuthenticated();
+    }
+    match /siteSettings/{settingId} {
+      allow read: if settingId == 'about' || isAuthenticated();
+      allow create, update, delete: if isAuthenticated();
+    }
   }
 }
