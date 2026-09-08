@@ -50,7 +50,7 @@ service cloud.firestore {
       allow delete: if isAuthenticated();
     }
     match /siteSettings/{settingId} {
-      allow read: if settingId in ['about', 'contact'] || isAuthenticated();
+      allow read: if settingId in ['about', 'contact', 'history'] || isAuthenticated();
       allow create, update, delete: if isAuthenticated();
     }
   }
