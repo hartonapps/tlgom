@@ -36,6 +36,10 @@ service cloud.firestore {
       allow read: if resource.data.published == true || isAuthenticated();
       allow create, update, delete: if isAuthenticated();
     }
+    match /leadershipCategories/{categoryId} {
+      allow read: if resource.data.published == true || isAuthenticated();
+      allow create, update, delete: if isAuthenticated();
+    }
     match /testimonies/{testimonyId} {
       allow read: if resource.data.published == true || isAuthenticated();
       allow create, update, delete: if isAuthenticated();

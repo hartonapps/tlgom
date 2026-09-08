@@ -12,6 +12,7 @@ const resources = {
   leadership: { collection: "leadership" },
   testimonies: { collection: "testimonies" },
   contact: { collection: "siteSettings", document: "contact" },
+  leadershipCategories: { collection: "leadershipCategories" },
 } as const;
 
 export async function GET(_: Request, { params }: { params: Promise<{ resource: string }> }) {
