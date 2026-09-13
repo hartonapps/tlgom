@@ -5,9 +5,9 @@
 * { box-sizing:border-box; } html { scroll-behavior:smooth; } html,body { margin:0; min-height:100%; } body { background:#111; color:var(--foreground); font-family:var(--font-inter),Arial,Helvetica,sans-serif; } a { color:inherit; text-decoration:none; } section[id],footer[id] { scroll-margin-top:80px; }
 .container { margin:auto; max-width:1240px; padding:0 32px; width:100%; }
 .hero-page { background:var(--blue); min-height:100svh; overflow:hidden; position:relative; touch-action:pan-y; }
-.hero-background-track { display:flex; height:100%; inset:0; position:absolute; transition:transform .9s cubic-bezier(.76,0,.24,1); width:100%; z-index:0; }
+.hero-background-track { display:flex; height:100%; inset:0; position:absolute; transition:transform .9s cubic-bezier(.76,0,.24,1); width:100%; z-index:2; }
 .hero-background { background-position:center; background-size:cover; flex:0 0 100%; height:100%; width:100%; }
-.hero-shade { background:linear-gradient(90deg,rgba(0,0,0,.72) 0%,rgba(0,0,0,.48) 48%,rgba(0,0,0,.43) 100%),linear-gradient(0deg,rgba(0,0,0,.55),transparent 45%); inset:0; position:absolute; z-index:1; }
+.hero-shade { background:linear-gradient(90deg,rgba(0,0,0,.72) 0%,rgba(0,0,0,.48) 48%,rgba(0,0,0,.43) 100%),linear-gradient(0deg,rgba(0,0,0,.55),transparent 45%); inset:0; pointer-events:none; position:absolute; z-index:1; }
 .site-header { border-bottom:1px solid rgba(255,255,255,.13); left:0; position:absolute; right:0; top:0; z-index:4; } .header-inner { align-items:center; display:flex; gap:42px; height:86px; }
 .brand { align-items:center; display:flex; gap:11px; margin-right:auto; } .brand img { border-radius:50%; height:58px; object-fit:cover; width:58px; } .brand strong { color:white; display:block; font-size:11px; letter-spacing:.06em; line-height:1.1; } .brand small { color:rgba(255,255,255,.78); display:block; font-size:8px; font-weight:600; letter-spacing:.06em; margin-top:5px; text-transform:uppercase; }
 .desktop-nav { align-items:center; display:flex; gap:32px; } .desktop-nav>a { color:rgba(255,255,255,.84); font-size:15px; font-weight:600; padding:33px 0 30px; position:relative; text-transform:uppercase; transition:color .2s; white-space:nowrap; } .desktop-nav>a:hover,.desktop-nav>a.active { color:white; } .desktop-nav>a.active:after { background:var(--red); bottom:0; content:""; height:2px; left:0; position:absolute; right:0; }
@@ -914,7 +914,7 @@ main.hero-page ~ div > section.submissions-section { background:#f0eee9; }
 .photo-tile:hover { box-shadow:0 18px 34px rgba(29,39,78,.16); transform:translateY(-4px); }
 @media (max-width:1050px) { .album-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
 @media (max-width:760px) { .album-grid { gap:14px; grid-template-columns:repeat(2,minmax(0,1fr)); } .album-card-shell .album-cover { height:155px; min-height:155px; } .album-card-shell .album-card h3 { font-size:19px; } .photo-grid { gap:10px; } .photo-tile { border-width:3px; } }
-.hero-background-video { height:100%; inset:0; object-fit:cover; position:absolute; width:100%; }
+.hero-background-video { filter:brightness(.72); height:100%; inset:0; object-fit:cover; position:absolute; width:100%; }
 .hero-video-sound { align-items:center; background:rgba(7,10,27,.48); border:1px solid rgba(255,255,255,.42); border-radius:50%; bottom:26px; color:#fff; cursor:pointer; display:flex; height:42px; justify-content:center; position:absolute; right:28px; transition:background .2s,transform .2s; width:42px; z-index:3; }
 .hero-video-sound:hover { background:var(--red); transform:translateY(-2px); }
 .slide-preview>video { height:100%; object-fit:cover; width:100%; }
@@ -926,3 +926,5 @@ main.hero-page ~ div > section.submissions-section { background:#f0eee9; }
 .sermons-hero p:last-child,.give-hero p:last-child,.events-hero p:last-child,.gallery-hero p:last-child,.blog-hero p:last-child,.about-hero p:last-child,.contact-hero p:not(.section-kicker),.testimony-hero p:not(.section-kicker),.public-ministry-hero p:last-child { color:#d9dcef; font-size:15px; line-height:1.65; max-width:560px; }
 .gallery-hero h1 { max-width:900px; overflow-wrap:anywhere; }
 @media (max-width:760px) { .sermons-hero,.give-hero,.events-hero,.gallery-hero,.blog-hero,.about-hero,.contact-hero,.testimony-hero,.public-ministry-hero { padding-bottom:48px; padding-top:92px; } .sermons-hero h1,.give-hero h1,.events-hero h1,.gallery-hero h1,.blog-hero h1,.about-hero h1,.contact-hero h1,.testimony-hero h1,.public-ministry-hero h1 { font-size:clamp(39px,11vw,58px); } }
+.hero-content { pointer-events:none; }
+.hero-content .hero-actions { pointer-events:auto; }
