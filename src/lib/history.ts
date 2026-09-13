@@ -3,12 +3,13 @@ export const defaultHistoryContent = `<article><p>The Life Global Outreach Minis
 function escapeHtml(value: string) { return value.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/\"/g, "&quot;").replace(/'/g, "&#039;"); }
 
 function scopeHistoryCss(css: string) {
-  return css.replace(/([^{}]+)\{/g, (match, rawSelector: string) => {
+  const source = css.replace(/\/\*[\s\S]*?\*\//g, "");
+  return source.replace(/([^{}]+)\{/g, (match, rawSelector: string) => {
     const selector = rawSelector.trim();
     if (!selector || selector.startsWith("@")) return match;
     const scoped = selector.split(",").map((item) => {
       const clean = item.trim().replace(/^:root\b/, "").replace(/^(html|body)\b/, "").trim();
-      return `.history-rich-content${clean ? ` ${clean}` : ""}`;
+      return clean.startsWith(".history-rich-content") ? clean : `.history-rich-content${clean ? ` ${clean}` : ""}`;
     }).join(", ");
     return match.replace(rawSelector, scoped);
   });

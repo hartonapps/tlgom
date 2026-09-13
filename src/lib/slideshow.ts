@@ -1,5 +1,6 @@
 export type SlideshowImage = {
   id: string;
+  mediaType?: "image" | "video";
   imageUrl?: string;
   publicId?: string;
   desktopImageUrl?: string;
