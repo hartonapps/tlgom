@@ -921,10 +921,20 @@ main.hero-page ~ div > section.submissions-section { background:#f0eee9; }
 .gallery-lightbox-download { align-items:center; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.25); border-radius:50%; color:#fff; display:flex; height:46px; justify-content:center; position:absolute; right:82px; top:20px; width:46px; z-index:2; }
 .gallery-lightbox-download:hover { background:var(--red); border-color:var(--red); }
 @media (max-width:760px) { .gallery-lightbox-download { height:40px; right:60px; top:12px; width:40px; } }
+@media (max-width:760px) { .gallery-lightbox-close { height:40px; right:12px; top:12px; width:40px; } }
 .sermons-hero,.give-hero,.events-hero,.gallery-hero,.blog-hero,.about-hero,.contact-hero,.testimony-hero,.public-ministry-hero { padding-bottom:58px; padding-top:clamp(78px,10vw,125px); }
 .sermons-hero h1,.give-hero h1,.events-hero h1,.gallery-hero h1,.blog-hero h1,.about-hero h1,.contact-hero h1,.testimony-hero h1,.public-ministry-hero h1 { font-size:clamp(42px,6.3vw,78px); letter-spacing:-.065em; line-height:.98; margin-bottom:14px; }
 .sermons-hero p:last-child,.give-hero p:last-child,.events-hero p:last-child,.gallery-hero p:last-child,.blog-hero p:last-child,.about-hero p:last-child,.contact-hero p:not(.section-kicker),.testimony-hero p:not(.section-kicker),.public-ministry-hero p:last-child { color:#d9dcef; font-size:15px; line-height:1.65; max-width:560px; }
 .gallery-hero h1 { max-width:900px; overflow-wrap:anywhere; }
 @media (max-width:760px) { .sermons-hero,.give-hero,.events-hero,.gallery-hero,.blog-hero,.about-hero,.contact-hero,.testimony-hero,.public-ministry-hero { padding-bottom:48px; padding-top:92px; } .sermons-hero h1,.give-hero h1,.events-hero h1,.gallery-hero h1,.blog-hero h1,.about-hero h1,.contact-hero h1,.testimony-hero h1,.public-ministry-hero h1 { font-size:clamp(39px,11vw,58px); } }
+.sermon-cards,.event-cards { gap:14px; grid-template-columns:repeat(2,minmax(0,1fr)); }
+.sermon-card,.event-card { border:1px solid rgba(42,43,119,.1); border-radius:12px; box-shadow:0 8px 22px rgba(29,39,78,.06); overflow:hidden; }
+.sermon-card-image,.event-card-image { height:145px; }
+.sermon-card-copy,.event-card-copy { padding:14px; }
+.sermon-card-copy h3,.event-card-copy h3 { font-size:17px; margin:8px 0 9px; }
+.sermon-card-copy p,.event-card-copy p { font-size:11px; }
+.view-all-card,.view-all-event-card { border:0; min-height:225px; padding:22px; }
+.view-all-card strong,.view-all-event-card strong { font-size:21px; }
+@media (max-width:760px) { .sermon-cards,.event-cards { gap:10px; grid-template-columns:repeat(2,minmax(0,1fr)); } .sermon-card-image,.event-card-image { height:118px; } .sermon-card-copy,.event-card-copy { padding:11px; } .sermon-card-copy h3,.event-card-copy h3 { font-size:14px; } .sermon-card-copy p,.event-card-copy p { font-size:10px; } .view-all-card,.view-all-event-card { min-height:190px; padding:15px; } .view-all-card strong,.view-all-event-card strong { font-size:17px; } }
 .hero-content { pointer-events:none; }
 .hero-content .hero-actions { pointer-events:auto; }
