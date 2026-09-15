@@ -27,10 +27,16 @@ export async function POST(request: NextRequest) {
 
     const body = await request.json().catch(() => ({}));
 
-    const folder =
-      body.folder === "tlgom/gallery"
-        ? "tlgom/gallery"
-        : "tlgom/slideshow";
+    const allowedFolders = new Set(["tlgom/gallery", "tlgom/slideshow", "tlgom/about", "tlgom/events", "tlgom/giving"]);
+    const folder = allowedFolders.has(body.folder) ? body.folder : "tlgom/slideshow";
+
+    const resourceType = body.resourceType === "video" ? "video" : "image";
+    const requestedDuration = Number(body.videoDuration);
+    const videoDuration = resourceType === "video"
+      ? Math.min(30, Math.max(5, Number.isFinite(requestedDuration) ? requestedDuration : 30))
+      : undefined;
+    // Incoming transformation replaces the stored video with the selected clip, rather than retaining a full-length original plus a derivative.
+    const transformation = videoDuration ? `so_0,du_${videoDuration},q_auto,f_auto` : undefined;
 
     const timestamp = Math.round(Date.now() / 1000);
 
@@ -38,6 +44,7 @@ export async function POST(request: NextRequest) {
       {
         timestamp,
         folder,
+        ...(transformation ? { transformation } : {}),
       },
       apiSecret
     );
@@ -48,6 +55,9 @@ export async function POST(request: NextRequest) {
       signature,
       apiKey,
       cloudName,
+      resourceType,
+      videoDuration,
+      transformation,
     });
   } catch (error) {
     const message =

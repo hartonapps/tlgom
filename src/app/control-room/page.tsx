@@ -22,6 +22,7 @@ export default function ControlRoomPage() {
     ["/control-room/blog", FileText, "Edit articles", "Create, edit, preview, and publish articles for the blog."],
     ["/control-room/about", Info, "Edit About page", "Update mission, vision, story, legacy, and leadership profiles."],
     ["/control-room/history", FileText, "Edit history", "Write and preview the ministry story shown at /about/history."],
+    ["/control-room/testimonies", MessageSquareText, "Manage testimonies", "Choose submitted testimonies for the public testimony page."],
     ["/control-room/sermons", Video, "Manage sermons", "Add featured messages and maintain the sermon archive."],
     ["/control-room/events", CalendarDays, "Manage events", "Add events, recurring Sunday services, countdowns, and covers."],
     ["/control-room/gallery", Images, "Manage photo gallery", "Create albums, upload photos, and manage image collections."],
