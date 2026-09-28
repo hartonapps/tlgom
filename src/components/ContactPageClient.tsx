@@ -1,10 +1,10 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import { Facebook, Instagram, LoaderCircle, MessageCircle, Send, Twitter, Youtube } from "lucide-react";
+import { Globe2, LoaderCircle, MessageCircle, Send } from "lucide-react";
 import type { ContactSettings } from "@/lib/contact";
 
-const socialLinks = (contact: ContactSettings) => [["Facebook", contact.socialLinks?.facebook, Facebook], ["Instagram", contact.socialLinks?.instagram, Instagram], ["YouTube", contact.socialLinks?.youtube, Youtube], ["X", contact.socialLinks?.x, Twitter], ["WhatsApp", contact.socialLinks?.whatsapp, MessageCircle]] as const;
+const socialLinks = (contact: ContactSettings) => [["Facebook", contact.socialLinks?.facebook, Globe2], ["Instagram", contact.socialLinks?.instagram, Globe2], ["YouTube", contact.socialLinks?.youtube, Globe2], ["X", contact.socialLinks?.x, Globe2], ["WhatsApp", contact.socialLinks?.whatsapp, MessageCircle]] as const;
 
 export default function ContactPageClient({ contact }: { contact: ContactSettings }) {
   const [busy, setBusy] = useState(false); const [sent, setSent] = useState(false); const [error, setError] = useState("");

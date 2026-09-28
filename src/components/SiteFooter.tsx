@@ -2,12 +2,12 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { ArrowRight, Facebook, Instagram, MessageCircle, Twitter, Youtube } from "lucide-react";
+import { ArrowRight, Globe2, MessageCircle } from "lucide-react";
 import { doc, onSnapshot } from "firebase/firestore";
 import { db } from "@/lib/firebase/client";
 import { defaultContactSettings, type ContactSettings } from "@/lib/contact";
 
-const socialItems = (contact: ContactSettings) => [["Facebook", contact.socialLinks?.facebook, Facebook], ["Instagram", contact.socialLinks?.instagram, Instagram], ["YouTube", contact.socialLinks?.youtube, Youtube], ["X", contact.socialLinks?.x, Twitter], ["WhatsApp", contact.socialLinks?.whatsapp, MessageCircle]] as const;
+const socialItems = (contact: ContactSettings) => [["Facebook", contact.socialLinks?.facebook, Globe2], ["Instagram", contact.socialLinks?.instagram, Globe2], ["YouTube", contact.socialLinks?.youtube, Globe2], ["X", contact.socialLinks?.x, Globe2], ["WhatsApp", contact.socialLinks?.whatsapp, MessageCircle]] as const;
 export default function SiteFooter() {
   const [contact, setContact] = useState<ContactSettings>(defaultContactSettings);
   useEffect(() => { if (!db) return; return onSnapshot(doc(db, "siteSettings", "contact"), (snapshot) => setContact({ ...defaultContactSettings, ...(snapshot.data() || {}) })); }, []);

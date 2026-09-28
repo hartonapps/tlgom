@@ -15,7 +15,7 @@ The website should serve two major purposes:
 1. **Public Church Website** — where visitors can learn about the ministry, watch sermons, see events and historical moments, view galleries, submit prayer requests, share testimonies, give, and contact the church.
 2. **Control Room** — a private administration system where authorized administrators can manage almost all of the website's content without needing to edit the code.
 
-I want the website to be **content-driven rather than hardcoded**. This means things such as sermons, events, gallery albums, team members, ministries, articles, hero slides, testimonies, and other content should be manageable from the Control Room.
+I want the website to be **content-driven rather than hardcoded**. This means things such as sermons, events, gallery albums, team members, articles, hero slides, testimonies, and other content should be manageable from the Control Room.
 
 The structure should also allow me to add new features and content types in the future without having to rebuild the entire website.
 
@@ -87,8 +87,6 @@ The main navigation can contain:
 **Home**
 
 **About**
-
-**Ministries**
 
 **Media**
 
@@ -203,12 +201,6 @@ Show upcoming church events.
 
 ↓
 
-### Ministries
-
-Show the major ministries.
-
-↓
-
 ### Gallery Preview
 
 Show selected photographs from the gallery.
@@ -307,43 +299,9 @@ From the Control Room, I want to be able to:
 * Add their name
 * Add their position
 * Add their biography
-* Assign them to a ministry
 * Add social links where applicable
 * Change their order
 * Hide/remove them
-
----
-
-# 9. MINISTRIES
-
-I want Ministries to be dynamic.
-
-The initial ministries can include:
-
-* Youth
-* Children
-* Men
-* Women
-* Prayer
-* Evangelism / Outreach
-
-But I don't want the system to be limited to these.
-
-From the Control Room, I should be able to create another ministry later.
-
-Each ministry can have its own:
-
-* Name
-* Description
-* Cover image
-* Leader
-* Meeting information
-* Events
-* Gallery
-* Articles
-* Related content
-
-This means adding a new ministry later shouldn't require a developer.
 
 ---
 
@@ -731,10 +689,6 @@ Create and manage sermons.
 
 Create and manage events.
 
-### Ministries
-
-Create and manage ministries.
-
 ### Team
 
 Create and manage leadership/team members.
@@ -889,7 +843,6 @@ For example:
 [useSermons]
 [useEvents]
 [useArticles]
-[useMinistries]
 [useTeam]
 [useTestimonials]
 [usePrayerRequests]
@@ -931,7 +884,6 @@ Dynamic content such as:
 Sermons
 Articles
 Events
-Ministries
 Albums
 Conventions
 ```
@@ -947,8 +899,6 @@ I want clean URLs such as:
 ```text
 /about
 /leadership
-/ministries
-/ministries/youth
 /sermons
 /sermons/the-power-of-faith
 /events
@@ -1065,7 +1015,7 @@ The key principle is:
 
 > **I want the public website to be the presentation layer, while the Control Room becomes the place where I manage the church's digital content.**
 
-That way, when TLGOM is 17, 18, 20 years old and there are hundreds of sermons, thousands of photos, more ministries, more conventions, more anniversaries and more articles, **I shouldn't need to rebuild the website just because the church has grown.**
+That way, when TLGOM is 17, 18, 20 years old and there are hundreds of sermons, thousands of photos, more conventions, more anniversaries and more articles, **I shouldn't need to rebuild the website just because the church has grown.**
 
 
 
@@ -1579,28 +1529,6 @@ Past events should have a more archival/editorial appearance.
 
 ---
 
-# 16. Ministries
-
-Ministries should feel like communities rather than categories.
-
-Each ministry should have strong photography.
-
-Example:
-
-```text
-YOUTH
-Growing a generation grounded
-in Christ and His Word.
-
-[EXPLORE]
-```
-
-Cards should use imagery heavily.
-
-Hover effects can subtly reveal additional information.
-
----
-
 # 17. Testimonies
 
 Testimonies should feel human.
@@ -1814,7 +1742,6 @@ Each person can have:
 * name
 * position
 * short biography
-* ministry assignment
 * social links where applicable
 
 Avoid overly corporate team layouts.
@@ -1834,7 +1761,6 @@ LOGO
 
 Home
 About
-Ministries
 Media
 Events
 Gallery
@@ -1874,7 +1800,6 @@ Home / Media
 Use the same component across:
 
 * About
-* Ministries
 * Sermons
 * Events
 * Gallery
@@ -1929,7 +1854,6 @@ Use a clean dashboard structure:
 │ Homepage    │       CONTENT AREA          │
 │ Sermons     │                             │
 │ Events      │                             │
-│ Ministries  │                             │
 │ Team        │                             │
 │ Gallery     │                             │
 │ Articles    │                             │
@@ -2124,10 +2048,6 @@ EVENT
 Upcoming Events
 
 ↓
-PHOTOGRAPHIC
-Ministries
-
-↓
 EDITORIAL
 Gallery
 
@@ -2178,7 +2098,7 @@ Scripture, mission and Battle Cry establish identity.
 
 **"There is something here for me."**
 
-Sermons, ministries and events invite exploration.
+Sermons and events invite exploration.
 
 ### 5. Connection
 
